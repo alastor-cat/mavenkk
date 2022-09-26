@@ -70,6 +70,7 @@ public class Control extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>El domiciolio llegò: " + n + " " + a + "</h1>");
+            out.println("<img src=Imagenes/repartidor.jpeg  alt = fotoDomicilio height=150 width=250>");
             out.println("<h1>esta es un respuesta control</h1>");
             out.println("</body>");
             out.println("</html>");
