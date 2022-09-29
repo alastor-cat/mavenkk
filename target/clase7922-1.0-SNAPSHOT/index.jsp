@@ -12,7 +12,7 @@
         <title>Pag 1</title>
     </head>
     <body background="https://external-preview.redd.it/_5dfvR7VdCWNE4RTzEcIsjEo5K_HtxzrcAJVWzOJACA.png?auto=webp&s=b14f789a044c40ae12b9eaba9e98e18b476b70ff">
-        <h1> <strong> <font color="blue"> Bienvenido a mi pagina </font> </strong>> </h1>
+        <h1> <strong> <font color="blue"> Bienvenido a mi pagina alexander arcos murcia </font> </strong>> </h1>
         <strong> <a href="Control">verificar sevelt objeto response</a> </strong>
         <form action="Control" method="get">
             <font color="yellow"><label>Nombres:  </label></font>
