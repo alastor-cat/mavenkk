@@ -8,21 +8,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pag 1</title>
+        <meta charset="ISO-8859-1">
+        <title>Insert title here</title>
     </head>
     <body>
-        <h1> <strong> <font color="blue"> Bienvenido a mi pagina web </font> </strong>> </h1>
-        <strong> <a href="Control">verificar sevelt objeto response</a> </strong>
-        <form action="login" method="POST">
-            <input type="hidden" name="origin" value="${origin}">
-            <c:if test="${not empty error}">
-                * error: ${error} 
-            </c:if>
-            <input type="text" name="name">
-            <input type="password" name="password"> 
-            <input type="submit">
-        </form>
+        <div align="center">
+            <h1>Employee Register Form</h1>
+            <form action="<%= request.getContextPath()%>/register" method="post">
+                <table style="with: 80%">
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="firstName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lastName" /></td>
+                    </tr>
+                    <tr>
+                        <td>UserName</td>
+                        <td><input type="text" name="username" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type="text" name="address" /></td>
+                    </tr>
+                    <tr>
+                        <td>Contact No</td>
+                        <td><input type="text" name="contact" /></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
     </body>
-
 </html>
