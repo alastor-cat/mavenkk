@@ -12,14 +12,16 @@
         <title>Pag 1</title>
     </head>
     <body>
-        <h1> <strong> <font color="blue"> Bienvenido a mi pagina </font> </strong>> </h1>
+        <h1> <strong> <font color="blue"> Bienvenido a mi pagina web </font> </strong>> </h1>
         <strong> <a href="Control">verificar sevelt objeto response</a> </strong>
-        <form action="Control" method="get">
-            <font color="yellow"><label>Nombres:  </label></font>
-            <input type="text" name="txt_nombres" required/>
-            <font color="yellow"><label>Apellidos:  </label></font>
-            <input type="text" name="txt_apellidos" required/>
-            <input type="submit" name="btn_registrar" value="Registrar"/>
+        <form action="login" method="POST">
+            <input type="hidden" name="origin" value="${origin}">
+            <c:if test="${not empty error}">
+                * error: ${error} 
+            </c:if>
+            <input type="text" name="name">
+            <input type="password" name="password"> 
+            <input type="submit">
         </form>
     </body>
 
