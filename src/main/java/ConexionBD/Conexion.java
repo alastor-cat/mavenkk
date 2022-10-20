@@ -21,10 +21,10 @@ public class Conexion {
     private String contra;
     
     private Conexion() {
-        String url = "";
+        String url = "jdbc:postgresql://127.0.0.1:5432/Basededatosnombre";
         String DB = "";
-        String usuario = "usuario";
-        String contra = "password";
+        String usuario = "postgres";
+        String contra = "";
         
     try{
        Class.forName("org.postgresql.Drive");
