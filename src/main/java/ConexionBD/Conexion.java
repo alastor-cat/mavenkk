@@ -14,38 +14,39 @@ import java.sql.SQLException;
  * @author administradorPC
  */
 public class Conexion {
-    private Connection conectar;
+    private static Connection conectar = null;
+    private String url;
     private String DB;
     private String usuario;
     private String contra;
-
-    public Conexion(Connection conectar, String DB, String usuario, String contra) {
-        this.conectar = conectar;
-        this.DB = DB;
-        this.usuario = usuario;
-        this.contra = contra;
-    }
     
-    public Conexion() {
-        this.conectar = null;
-        this.DB = "";
-        this.usuario = "";
-        this.contra = "";
+    private Conexion() {
+        String url = "";
+        String DB = "";
+        String usuario = "usuario";
+        String contra = "password";
+        
+    try{
+       Class.forName("org.postgresql.Drive");
+      conectar = DriverManager.getConnection(url, usuario, contra);
     }
- 
-    public void conectar() throws SQLException{
-        try{
-            Class.forName("org.postgresql.Drive");
-            this.DB="";
-            this.usuario="";
-            this.contra="";
-            this.conectar= (Connection) DriverManager.getConnection(DB,usuario,contra);
-        }catch(ClassNotFoundException | HeadlessException | SQLException e){
-            System.out.println("Error al conectar" + e);
-        } 
+    catch(ClassNotFoundException | SQLException e){
+      e.printStackTrace();
     }
-    
-    public Connection getConexion(){
-            return conectar;
+}
+    public static Connection getConexion(){
+            
+        if(conectar== null){
+         new Conexion();
         }
+        
+        
+        return conectar;
+    }
+    
+    /*
+    Y una vez programada nuestra clase, podremos echar mano de esa conexión desde cualquier parte de nuestro programa llamándolo de esta forma
+
+     Connection conn = EjemploSingleton.getConnection();
+    */
 }
