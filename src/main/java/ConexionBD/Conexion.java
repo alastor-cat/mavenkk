@@ -14,39 +14,46 @@ import java.sql.SQLException;
  * @author administradorPC
  */
 public class Conexion {
-    private static Connection conectar = null;
-    private String url;
-    private String DB;
+    private Connection conectar;
+    private String BD;
     private String usuario;
     private String contra;
-    
+    private static Conexion con;
+
+    private Conexion(Connection conectar, String BD, String usuario, String contra) {
+        this.conectar = conectar;
+        this.BD = BD;
+        this.usuario = usuario;
+        this.contra = contra;
+    }
+
     private Conexion() {
-        String url = "jdbc:postgresql://127.0.0.1:5432/Basededatosnombre";
-        String DB = "";
-        String usuario = "postgres";
-        String contra = "";
-        
-    try{
-       Class.forName("org.postgresql.Drive");
-      conectar = DriverManager.getConnection(url, usuario, contra);
+        this.conectar = null;
+        this.BD = "BD_pruebaAlex";
+        this.usuario = "postgres";
+        this.contra = "1234";
     }
-    catch(ClassNotFoundException | SQLException e){
-      e.printStackTrace();
-    }
-}
-    public static Connection getConexion(){
-            
-        if(conectar== null){
-         new Conexion();
+
+    public void conectar() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            this.BD = "jdbc:postgresql://127.0.0.1:5432/BD_pruebaAlex";
+            this.usuario = "postgres";
+            this.contra = "123456";
+            this.conectar = (Connection) DriverManager.getConnection(BD, usuario, contra);
+        } catch (ClassNotFoundException | HeadlessException | SQLException e) {
+
+            System.out.println("Error al conectar: " + e);
         }
-        
-        
+    }
+
+    public Connection getConexion() {
         return conectar;
     }
-    
-    /*
-    Y una vez programada nuestra clase, podremos echar mano de esa conexión desde cualquier parte de nuestro programa llamándolo de esta forma
-
-     Connection conn = EjemploSingleton.getConnection();
-    */
+    public static Conexion getIntance(){
+        if(con==null){
+            con=new Conexion();
+        }
+        return con;
+    }
 }

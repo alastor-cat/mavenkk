@@ -2,6 +2,7 @@
     Document   : index
     Created on : 7 sept 2022, 13:14:08
     Author     : Alexander Arcos Murcia
+puerto pgadmin :5432
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -31,21 +32,32 @@
     <div class="container mt-4 col-4">
         <div class="card col-sm-10" >
             <div class="card-body">
-                <form class="form-sing" action="Validar" method="POST">
+                <form action="Controlador" method="POST">
                     <div class="form-group text-center">
                         <h3>Login</h3>
                         <img src="Imagenes/logotipo.jpg" alt="70" width="170"/>
-                        <label>Bienvenidos al sistema de ventas</label>
+                        <label>Bienvenidos al sistema por favor registrese: </label>
                     </div>
                     <div class="form-group">
-                        <label>Usuario:</label>
-                        <input type="text" name="txtuser" class="form-control">
+                        <label>Nombres:</label>
+                        <input type="text" name="txt_nombres" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefono:</label>
+                        <input type="text" name="txt_telefono" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo:</label>
+                        <input type="email" name="txt_email" required/>
                     </div>
                     <div class="form-group">
                         <label>Contraseña:</label>
-                        <input type="password" name="txtpass" class="form-control">
+                        <input type="password" name="txt_contraseña" required/>
                     </div>
-                    <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">
+                    <div id="registro">
+                        <input type="submit" name="btn_registrar" value="Registrar"/>
+                        <input type="reset" name="btn_borrar" value="Borrar"/>
+                    </div>
                 </form>
             </div>    
         </div>
